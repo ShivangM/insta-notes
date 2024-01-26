@@ -1,16 +1,14 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { headers } from 'next/headers';
 import React from 'react';
 import navbarLinks from '../../utils/navbarLinks.json';
 import classNames from 'classnames';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
-  const heads = headers();
-
-  const pathname = heads.get('next-url');
-
-  console.log(pathname);
+  const pathname = usePathname();
 
   return (
     <header className="p-4 bg-gray-50">
