@@ -1,29 +1,39 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import React from 'react';
+import navbarLinks from '../../utils/navbarLinks.json';
+import classNames from 'classnames';
 
 const Navbar = () => {
+  const heads = headers();
+
+  const pathname = heads.get('next-url');
+
+  console.log(pathname);
+
   return (
     <header className="p-4 bg-gray-50">
       <div className="container flex justify-between h-16 mx-auto">
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">
-            <Link
-              rel="noopener noreferrer"
-              href="/"
-              className="flex items-center px-4 -mb-1 border-b-2 text-indigo-400 border-indigo-400"
-            >
-              Explore
-            </Link>
-          </li>
-          <li className="flex">
-            <Link
-              rel="noopener noreferrer"
-              href="/categories"
-              className="flex items-center px-4 -mb-1 border-b-2 border-transparent"
-            >
-              Categories
-            </Link>
+            {navbarLinks.map((link, idx) => {
+              return (
+                <Link
+                  rel="noopener noreferrer"
+                  href={link.path}
+                  key={idx}
+                  className={classNames(
+                    'flex items-center px-4 -mb-1',
+                    pathname === link.path
+                      ? 'text-indigo-400 border-indigo-400 border-b-2'
+                      : null
+                  )}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </li>
         </ul>
 

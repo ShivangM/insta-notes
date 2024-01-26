@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Explore",
+        "path": "/"
+    },
+    {
+        "name": "Categories",
+        "path": "/categories"
+    }
+]
