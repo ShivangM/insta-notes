@@ -11,7 +11,7 @@ const Navbar = () => {
             <Link
               rel="noopener noreferrer"
               href="/"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-indigo-400 dark:border-indigo-400"
+              className="flex items-center px-4 -mb-1 border-b-2 text-indigo-400 border-indigo-400"
             >
               Explore
             </Link>
@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link
               rel="noopener noreferrer"
               href="/categories"
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
+              className="flex items-center px-4 -mb-1 border-b-2 border-transparent"
             >
               Categories
             </Link>
