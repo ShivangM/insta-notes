@@ -6,6 +6,9 @@ from posts.models import Post
 from posts.serializers import PostSerializer
 import math
 from datetime import datetime
+from .models import Post,Category
+
+from django.http import JsonResponse
 
 class Posts(generics.GenericAPIView):
     serializer_class = PostSerializer
@@ -28,13 +31,17 @@ class Posts(generics.GenericAPIView):
         # Get search sting from query params
         search_param = request.GET.get("search")
 
+
         # Get all posts and their count.
         posts = Post.objects.all()
         total_posts = posts.count()
 
-        # Filter posts by search param.
-        if search_param:
-            posts = posts.filter(title__icontains=search_param)
+        category_id=request.GET.get('category', None)
+        
+        if category_id:
+            category=Category.objects.get(id=category_id)
+            posts=Post.objects.filter(category=category)
+            total_posts=posts.count()
 
         # Serialize data.
         serializer = self.serializer_class(posts[start_num:end_num], many=True)
