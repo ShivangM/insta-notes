@@ -1,17 +1,22 @@
 [
     {
-        "name": "CS / IT"
+        "name": "CS / IT",
+        "slug": "cs-it"
     },
     {
-        "name": "Programming"
+        "name": "Programming",
+        "slug": "programming"
     },
     {
-        "name": "Engineering"
+        "name": "Engineering",
+        "slug": "engineering"
     },
     {
-        "name": "Business"
+        "name": "Business",
+        "slug": "business"
     },
     {
-        "name": "Management"
+        "name": "Management",
+        "slug": "management"
     }
 ]
