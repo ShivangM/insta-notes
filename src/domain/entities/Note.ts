@@ -4,4 +4,5 @@ export interface Note {
   price: string;
   category: string;
   image: string;
+  id: string;
 }

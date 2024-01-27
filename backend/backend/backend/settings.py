@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["localhost"]
 
 INSTALLED_APPS = [
     'category.apps.CategoryConfig',
+    'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
