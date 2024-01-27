@@ -2,16 +2,19 @@ import { BaseResponse } from './BaseResponse';
 import { Category } from './Category';
 import { User } from './User';
 
-export interface Note {
+export interface NoteBase {
   name: string;
   description: string;
-  price: number;
   category: Category;
+  terms: string;
+  thumbnail?: string;
+  price: number;
+}
+
+export interface Note extends NoteBase {
   created_by: User;
   created_at: string;
-  thumbnail?: string;
   id: string;
-  terms: string;
 }
 
 export interface PostsFetchedResponse extends BaseResponse {

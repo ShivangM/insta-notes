@@ -26,7 +26,7 @@ const NoteCard = ({ note }: Props) => {
           <div className="flex items-center">
             <span className="font-bold">{category.name}</span>
           </div>
-          <Link rel="noopener noreferrer" href={`/categories/${category.slug}`}>
+          <Link rel="noopener noreferrer" href={`/categories/${category.id}`}>
             See All
           </Link>
         </div>
@@ -41,13 +41,13 @@ const NoteCard = ({ note }: Props) => {
             />
             <div className="flex items-center text-xs">
               {/* <span>6 min ago</span> */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-2 items-center">
                 <Image
                   alt=""
-                  src={'https://source.unsplash.com/100x100/?portrait'}
-                  width={200}
-                  height={100}
-                  className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
+                  src={'/Dummy Profile.png'}
+                  width={1080}
+                  height={1080}
+                  className="object-cover w-8 h-8 rounded-full shadow dark:bg-gray-500"
                 />
                 <div className="flex flex-col space-y-1">
                   <Link

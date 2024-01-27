@@ -7,7 +7,7 @@ from posts.serializers import PostSerializer
 import math
 from datetime import datetime
 from .models import Post,Category
-
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 
 
@@ -30,19 +30,21 @@ class Posts(generics.GenericAPIView):
         start_num = (page_num - 1) * limit_num
         end_num = limit_num * page_num
 
-        # Get search sting from query params
-        search_param = request.GET.get("search")
-
-
         # Get all posts and their count.
         posts = Post.objects.all()
         total_posts = posts.count()
 
         category_id=request.GET.get('category', None)
+        user_id=request.GET.get('user_id', None)
         
         if category_id:
             category=Category.objects.get(id=category_id)
             posts=Post.objects.filter(category=category)
+            total_posts=posts.count()
+
+        if user_id:
+            user=User.objects.get(id=user_id)
+            posts=Post.objects.filter(created_by=user)
             total_posts=posts.count()
 
         # Serialize data.

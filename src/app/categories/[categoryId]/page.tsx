@@ -1,6 +1,6 @@
-import NoteCard from "@/components/explore/NoteCard";
-import { Note } from "@/domain/entities/Note";
-import React from "react";
+import NoteCard from '@/components/explore/NoteCard';
+import { Note } from '@/domain/entities/Note';
+import React from 'react';
 
 type Props = {
   params: {
@@ -9,10 +9,13 @@ type Props = {
 };
 
 const page = async ({ params: { categoryId } }: Props) => {
-  const allNotes = await fetch("http://127.0.0.1:8000/api/posts", {
-    method: "GET",
-    cache: "no-cache",
-  }).then((res) => res.json());
+  const allNotes = await fetch(
+    `http://127.0.0.1:8000/api/posts?category=${categoryId}`,
+    {
+      method: 'GET',
+      cache: 'no-cache',
+    }
+  ).then((res) => res.json());
   const posts = allNotes.posts;
 
   return (
