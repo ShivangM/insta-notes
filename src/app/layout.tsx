@@ -1,3 +1,4 @@
+import ClientProviders from '@/components/common/ClientProviders';
 import Footer from '@/components/common/Footer';
 import Navbar from '@/components/common/Navbar';
 import type { Metadata } from 'next';
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <Toaster />
-        {children}
+        <ClientProviders>{children}</ClientProviders>
         <Footer />
       </body>
     </html>
