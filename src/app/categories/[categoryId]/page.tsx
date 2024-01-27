@@ -6,7 +6,7 @@ type Props = {
   };
 };
 
-const page = ({ params: { categoryId } }: Props) => {
+const page = async ({ params: { categoryId } }: Props) => {
   return <div>{categoryId}</div>;
 };
 
