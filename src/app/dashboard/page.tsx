@@ -5,7 +5,7 @@ import React from 'react';
 const page = () => {
   return (
     <div className="mx-auto container p-10">
-      <ConnectWallet />;
+      <ConnectWallet />
     </div>
   );
 };

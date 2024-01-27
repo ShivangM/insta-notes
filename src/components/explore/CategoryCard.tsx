@@ -7,10 +7,10 @@ type Props = {
 };
 
 const CategoryCard = ({ category }: Props) => {
-  const { name, slug } = category;
+  const { name, slug, id } = category;
   return (
     <Link
-      href={`/categories/${slug}`}
+      href={`/categories/${id}`}
       className="relative flex items-center justify-center p-10 rounded-xl shadow-lg"
     >
       {name}

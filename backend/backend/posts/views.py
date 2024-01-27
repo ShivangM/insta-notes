@@ -7,6 +7,7 @@ from posts.serializers import PostSerializer
 import math
 from datetime import datetime
 
+
 class Posts(generics.GenericAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
@@ -14,10 +15,11 @@ class Posts(generics.GenericAPIView):
     '''
         Endpoint: /api/posts
         Method: GET
-        Description: Returns list of all departmets, or based on provided page, limit, search value.
+        Description: Returns list of all posts, or based on provided page, limit, search value.
     '''
+
     def get(self, request):
-         # Get page number and limit from request query params.
+        # Get page number and limit from request query params.
         page_num = int(request.GET.get("page", 1))
         limit_num = int(request.GET.get("limit", 10))
 
@@ -39,7 +41,7 @@ class Posts(generics.GenericAPIView):
         # Serialize data.
         serializer = self.serializer_class(posts[start_num:end_num], many=True)
 
-        #Returns response.
+        # Returns response.
         return Response({
             "status": "success",
             "total": total_posts,
@@ -49,10 +51,11 @@ class Posts(generics.GenericAPIView):
         })
 
     '''
-        Endpoint: /api/departmets
+        Endpoint: /api/posts
         Method: POST
         Description: Add a post to database.
     '''
+
     def post(self, request):
         # Serializes data provided.
         serializer = self.serializer_class(data=request.data)
@@ -61,11 +64,12 @@ class Posts(generics.GenericAPIView):
         if serializer.is_valid():
             # Saves post if valid.
             serializer.save()
-            return Response({"status": "success", "data": {"post": serializer.data}}, status=status.HTTP_201_CREATED)
+            return Response({"status": "success", "posts": serializer.data}, status=status.HTTP_201_CREATED)
         else:
             # Returns error response if data is invalid.
             return Response({"status": "fail", "message": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
-        
+
+
 class PostDetail(generics.GenericAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
@@ -76,6 +80,7 @@ class PostDetail(generics.GenericAPIView):
         Description: Returns post by id from database.
         Params: pk: primary key.
     '''
+
     def get_post(self, pk):
         try:
             return Post.objects.get(pk=pk)
@@ -92,13 +97,14 @@ class PostDetail(generics.GenericAPIView):
 
         # Seriialize post data.
         serializer = self.serializer_class(post)
-        return Response({"status": "success", "data": {"post": serializer.data}})
+        return Response({"status": "success", "post": serializer.data})
 
     '''
         Endpoint: /api/posts/:pk
         Method: PATCH
         Description: Update a post in database.
     '''
+
     def patch(self, request, pk):
         # Retrieves post from database.
         post = self.get_post(pk)
@@ -110,7 +116,7 @@ class PostDetail(generics.GenericAPIView):
         # Seriialize post data.
         serializer = self.serializer_class(
             post, data=request.data, partial=True)
-        
+
         # Checks if provided details are valid.
         if serializer.is_valid():
             # Update post and returns updated response if details are valid.
@@ -126,6 +132,7 @@ class PostDetail(generics.GenericAPIView):
         Method: DELETE
         Description: Delete a post from database.
     '''
+
     def delete(self, request, pk):
         # Retrieves post from database.
         post = self.get_post(pk)
@@ -137,14 +144,8 @@ class PostDetail(generics.GenericAPIView):
         # Deletes post from database.
         post.delete()
 
-        #Returns response to client
+        # Returns response to client
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-
-
-
-
 
 
 # Create your views here.

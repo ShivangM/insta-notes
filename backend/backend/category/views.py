@@ -45,7 +45,7 @@ class Categorys(generics.GenericAPIView):
             "total": total_categorys,
             "page": page_num,
             "last_page": math.ceil(total_categorys / limit_num),
-            "categorys": serializer.data
+            "categories": serializer.data
         })
 
     '''
