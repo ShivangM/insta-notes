@@ -5,9 +5,15 @@ import React from 'react';
 import navbarLinks from '../../utils/navbarLinks.json';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
+import useUserStore from '@/store/userStore';
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const [userData, logout] = useUserStore((state) => [
+    state.userData,
+    state.logout,
+  ]);
 
   return (
     <header className="p-4 bg-gray-50">
@@ -68,14 +74,25 @@ const Navbar = () => {
             />
           </div>
 
-          <Link
-            href="/login"
-            className="relative rounded px-5 py-2.5 overflow-hidden group bg-indigo-500 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all ease-out duration-300"
-          >
-            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Login</span>
-          </Link>
+          {userData === null ? (
+            <Link
+              href="/login"
+              className="relative rounded px-5 py-2.5 overflow-hidden group bg-indigo-500 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all ease-out duration-300"
+            >
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative">Login</span>
+            </Link>
+          ) : (
+            <button
+              onClick={logout}
+              className="relative rounded px-5 py-2.5 overflow-hidden group bg-indigo-500 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all ease-out duration-300"
+            >
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative">Logout</span>
+            </button>
+          )}
         </div>
+
         <button title="Open menu" type="button" className="p-4 lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
