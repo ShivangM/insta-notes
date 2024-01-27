@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { headers } from 'next/headers';
 import React from 'react';
 import navbarLinks from '../../utils/navbarLinks.json';
 import classNames from 'classnames';

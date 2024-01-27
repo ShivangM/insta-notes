@@ -1,4 +1,5 @@
 import { Category } from '@/domain/entities/Category';
+import Link from 'next/link';
 import React from 'react';
 
 type Props = {
@@ -6,8 +7,15 @@ type Props = {
 };
 
 const CategoryCard = ({ category }: Props) => {
-  const { name } = category;
-  return <div className="relative p-10 rounded-xl shadow-lg">{name}</div>;
+  const { name, slug } = category;
+  return (
+    <Link
+      href={`/categories/${slug}`}
+      className="relative flex items-center justify-center p-10 rounded-xl shadow-lg"
+    >
+      {name}
+    </Link>
+  );
 };
 
 export default CategoryCard;

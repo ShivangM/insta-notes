@@ -1,6 +1,6 @@
-import CategoryCard from "@/components/explore/CategoryCard";
-import React from "react";
-import categories from "../../utils/categories.json";
+import CategoryCard from '@/components/explore/CategoryCard';
+import React from 'react';
+import categories from '../../utils/categories.json';
 
 const page = () => {
   return (
