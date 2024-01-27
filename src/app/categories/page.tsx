@@ -1,15 +1,16 @@
-import CategoryCard from '@/components/explore/CategoryCard';
-import { CategoriesFetchedResponse } from '@/domain/entities/Category';
-import React from 'react';
+import CategoryCard from "@/components/explore/CategoryCard";
+import { CategoriesFetchedResponse } from "@/domain/entities/Category";
+import React from "react";
 
 const page = async () => {
   const res: CategoriesFetchedResponse = await fetch(
-    'http://127.0.0.1:8000/api/categories',
+    "http://127.0.0.1:8000/api/categories",
     {
-      method: 'GET',
-      cache: 'no-cache',
+      method: "GET",
+      cache: "no-cache",
     }
   ).then((res) => res.json());
+  // console.log(res);
 
   const categories = res.categories;
 
