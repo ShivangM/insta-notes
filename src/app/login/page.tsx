@@ -1,10 +1,10 @@
-'use client';
-import { LoginParams } from '@/domain/entities/User';
-import useUserStore from '@/store/userStore';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+"use client";
+import { LoginParams } from "@/domain/entities/User";
+import useUserStore from "@/store/userStore";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 const page = () => {
   const {
@@ -21,7 +21,7 @@ const page = () => {
   const onSubmit: SubmitHandler<LoginParams> = async (data) => {
     const res = await loginUser(data);
     if (res) {
-      navigation.push('/dashboard');
+      navigation.push("/dashboard");
       reset();
     }
   };
@@ -42,7 +42,7 @@ const page = () => {
           <input
             id="username"
             type="text"
-            {...register('username', { required: 'User is required.' })}
+            {...register("username", { required: "User is required." })}
             className="flex bg-gray-100 items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ri "
           />
           <label
@@ -53,7 +53,7 @@ const page = () => {
           </label>
           <input
             id="password"
-            {...register('password', { required: 'Password is required.' })}
+            {...register("password", { required: "Password is required." })}
             type="password"
             className="flex bg-gray-100 items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ri "
           />
