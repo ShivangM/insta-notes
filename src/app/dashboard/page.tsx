@@ -47,10 +47,10 @@ const page = () => {
       <ConnectWallet />
 
       <div className="grid grid-cols-2 gap-10">
-        <section className="shadow-lg rounded-lg p-10 w-full">
+        <div className="shadow-lg rounded-lg p-10 w-full">
           <h3 className="text-lg font-semibold">My Sharables</h3>
           <div className="">
-            {myPosts ? (
+            {myPosts.length > 0 ? (
               myPosts.map((post) => {
                 return (
                   <Link href={`/notes/${post.id}`}>
@@ -65,8 +65,9 @@ const page = () => {
               <div>No posts found.</div>
             )}
           </div>
-        </section>
-        <section className="shadow-lg rounded-lg p-10 w-full">
+        </div>
+
+        <div className="shadow-lg rounded-lg p-10 w-full">
           <h3 className="text-lg font-semibold">Share with world</h3>
           <p>Share your docs securely to world with you in control!</p>
 
@@ -130,7 +131,7 @@ const page = () => {
               <span className="relative">Create</span>
             </button>
           </form>
-        </section>
+        </div>
       </div>
     </div>
   );
