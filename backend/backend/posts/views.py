@@ -66,6 +66,8 @@ class Posts(generics.GenericAPIView):
     '''
 
     def post(self, request):
+        user = self.request.user
+        print(user)
         # Serializes data provided.
         serializer = self.serializer_class(data=request.data)
 

@@ -88,10 +88,25 @@ const page = () => {
               <label htmlFor="description" className="self-start font-semibold">
                 Description
               </label>
+              <textarea
+                id="description"
+                {...register('description', {
+                  required: 'Description is required.',
+                })}
+                className="flex w-full bg-gray-100 items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ri "
+              />
+            </div>
+
+            <div className="">
+              <label htmlFor="price" className="self-start font-semibold">
+                Price (In USD)
+              </label>
               <input
-                id="name"
-                type="text"
-                {...register('name', { required: 'Description is required.' })}
+                id="description"
+                type="number"
+                {...register('price', {
+                  required: 'Price is required.',
+                })}
                 className="flex w-full bg-gray-100 items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ri "
               />
             </div>

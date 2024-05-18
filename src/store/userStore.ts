@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { devtools, persist, createJSONStorage } from 'zustand/middleware';
 import toast from 'react-hot-toast';
 import { Note, NoteBase } from '@/domain/entities/Note';
+import { headers } from 'next/headers';
 
 interface UserState {
   userData: null | User;
@@ -73,6 +74,7 @@ const useUserStore = create<UserState>()(
             `http://localhost:8000/api/posts?user=${id}`,
             {
               method: 'GET',
+              cache: 'no-cache',
             }
           ).then((res) => res.json());
 
@@ -87,8 +89,12 @@ const useUserStore = create<UserState>()(
         },
 
         addPost: async (post: NoteBase): Promise<boolean> => {
-          const res = await fetch('http://localhost:8000/api/posts', {
+          const res = await fetch('http://localhost:8000/api/posts/', {
             method: 'POST',
+            body: JSON.stringify(post),
+            headers: {
+              'Content-Type': 'application/json',
+            },
           }).then((res) => res.json());
 
           if (res.post) {

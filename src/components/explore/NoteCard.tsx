@@ -33,7 +33,7 @@ const NoteCard = ({ note }: Props) => {
         <div className="space-y-4">
           <div className="space-y-2">
             <Image
-              src="https://source.unsplash.com/random/480x360/?4"
+              src={thumbnail || 'https://source.unsplash.com/random/480x360/?4'}
               height={100}
               width={200}
               alt={name}
@@ -73,8 +73,8 @@ const NoteCard = ({ note }: Props) => {
               <h3 className="text-xl font-semibold ">{name}</h3>
             </Link>
 
-            <p className="text-lg">ETH {price}</p>
-            <p className="leadi ">{description}</p>
+            <p className="text-lg">${price}</p>
+            <p className="leadi line-clamp-2 ">{description}</p>
           </div>
         </div>
       </div>

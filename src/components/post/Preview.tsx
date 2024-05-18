@@ -24,7 +24,7 @@ const Preview = (props: Props) => {
           </div>
           <img
             className="object-contain w-full lg:h-full"
-            src="https://i.postimg.cc/0jwyVgqz/Microprocessor1-removebg-preview.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkww7FONxpZpsG-pMvECCtx7qaoOYLr18QFp7QDVNJC4lZl1xgLYWZU7VMM-uVup-5iA4&usqp=CAU"
             alt=""
           />
           <div className="absolute right-0 transform lg:mr-2 top-1/2 translate-1/2">
@@ -48,7 +48,7 @@ const Preview = (props: Props) => {
             <div className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300">
               <img
                 className="object-contain w-full lg:h-28"
-                src="https://i.postimg.cc/Z5KhRkD6/download-1-removebg-preview.png"
+                src="https://www.wikihow.com/images/thumb/8/8f/Scientific-Research-Paper.png/340px-Scientific-Research-Paper.png.webp"
                 alt=""
               />
             </div>
@@ -57,7 +57,7 @@ const Preview = (props: Props) => {
             <div className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300">
               <img
                 className="object-contain w-full lg:h-28"
-                src="https://i.postimg.cc/8kJBrw03/download-removebg-preview.png"
+                src="https://www.wikihow.com/images/thumb/8/8f/Scientific-Research-Paper.png/340px-Scientific-Research-Paper.png.webp"
                 alt=""
               />
             </div>
@@ -66,7 +66,7 @@ const Preview = (props: Props) => {
             <div className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300">
               <img
                 className="object-contain w-full lg:h-28"
-                src="https://i.postimg.cc/0jwyVgqz/Microprocessor1-removebg-preview.png"
+                src="https://www.wikihow.com/images/thumb/8/8f/Scientific-Research-Paper.png/340px-Scientific-Research-Paper.png.webp"
                 alt=""
               />
             </div>
@@ -75,7 +75,7 @@ const Preview = (props: Props) => {
             <div className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300">
               <img
                 className="object-contain w-full lg:h-28"
-                src="https://i.postimg.cc/0N4Kk1PN/black-microprocessors-removebg-preview.png"
+                src="https://www.wikihow.com/images/thumb/8/8f/Scientific-Research-Paper.png/340px-Scientific-Research-Paper.png.webp"
                 alt=""
               />
             </div>

@@ -87,6 +87,7 @@ TEMPLATES = [
     },
 ]
 
+
 SITE_ID = 1
 
 WSGI_APPLICATION = 'backend.wsgi.application'
@@ -131,6 +132,7 @@ REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'auth',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh-token',
+    'JWT_AUTH_SAMESITE': 'None',
 }
 
 
